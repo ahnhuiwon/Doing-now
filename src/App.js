@@ -1,4 +1,3 @@
-import './App.css'
 import Main from './view/main.tsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 

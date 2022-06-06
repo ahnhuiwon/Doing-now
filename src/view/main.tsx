@@ -1,30 +1,29 @@
 import React, { Fragment } from 'react'
 import '../style/scss/main.scss'
 import exams_img from '../style/img/exams.svg'
+import Form from '../component/Form'
 
 const Main = () => {
   return (
     <Fragment>
       <div className="container">
-        <div className="form_container">
-          <div className="title_wrap">
-            <div className="title_in_div">
-              <h2>지금 뭐하지?</h2>
-              <div className="sub_title">
-                <p>선택장애 유저를 위한</p>
+        <div className="forms_container">
+          <div className="signin_signup">
+            <Form />
+
+            <form className="sign_in_form">
+              <h2 className="title">Sign in</h2>
+              <div className="input_field">
+                <i className="fas fa-user"></i>
+                <input type="text" placeholder="username" />
               </div>
-              <div className="sub_title">
-                <p>할 일 추천 사이트</p>
+              <div className="input_field">
+                <i className="fas fa-lock"></i>
+                <input type="text" placeholder="password" />
               </div>
-              <div className="sub_title">
-                <button>시작하기</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="panel_container">
-          <div className="panel left_panel">
-            <img alt="work_img" src={exams_img} />
+              <p className="social_text">지금 뭐하지?</p>
+              <input type="submit" value="시작하기" className="btn_solid" />
+            </form>
           </div>
         </div>
       </div>
