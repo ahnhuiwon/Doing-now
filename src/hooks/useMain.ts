@@ -66,7 +66,7 @@ export const useMainLogic = () => {
       `https://dapi.kakao.com/v2/translation/translate?src_lang=en&target_lang=kr&query=${activity}`,
       {
         headers: {
-          Authorization: 'KakaoAK c1d5bb9a47003e72e17807eec9bbb613',
+          Authorization: 'KakaoAK user_key',
           'Content-type': 'application/x-www-form-urlencoded',
         },
       }
