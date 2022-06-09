@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
 import { useMainLogic } from '../hooks/useMain'
+import Loading from '../component/Loading'
 
 const Form = () => {
   const [access, set_access] = useState<number>(0)
-  const { main_click } = useMainLogic()
+  const { main_click, loading } = useMainLogic()
 
   const change_func = evt => {
     const { value } = evt.target
 
     set_access(value)
+  }
+
+  if (loading) {
+    return <Loading />
   }
 
   return (

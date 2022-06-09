@@ -20,8 +20,7 @@ interface Resdata {
 
 // 메인 페이지 로직
 export const useMainLogic = () => {
-  const [setting_data, set_setting_data] = useState({})
-
+  const [loading, set_loading] = useState<boolean>(false)
   const navigate = useNavigate()
 
   const main_click = (e: React.FormEvent<HTMLFormElement>) => {
@@ -40,6 +39,8 @@ export const useMainLogic = () => {
   // rest api 함수
   const send_data = async (param: Tempdata) => {
     console.log(param)
+
+    set_loading(true)
 
     const { access, category, person } = param
 
@@ -65,12 +66,13 @@ export const useMainLogic = () => {
       `https://dapi.kakao.com/v2/translation/translate?src_lang=en&target_lang=kr&query=${activity}`,
       {
         headers: {
-          Authorization: 'KakaoAK user_key',
+          Authorization: 'KakaoAK c1d5bb9a47003e72e17807eec9bbb613',
           'Content-type': 'application/x-www-form-urlencoded',
         },
       }
     )
       .then(async res => {
+        await set_loading(false)
         await navigate('/result', {
           state: {
             activity: res.data.translated_text[0],
@@ -85,7 +87,7 @@ export const useMainLogic = () => {
       })
   }
 
-  return { main_click }
+  return { main_click, loading }
 }
 
 // 결과 페이지 로직
