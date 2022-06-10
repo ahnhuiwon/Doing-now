@@ -4,12 +4,19 @@ import Loading from '../component/Loading'
 
 const Form = () => {
   const [access, set_access] = useState<number>(0)
+  const [person, set_person] = useState<number>(1)
   const { main_click, loading } = useMainLogic()
 
   const change_func = evt => {
     const { value } = evt.target
 
     set_access(value)
+  }
+
+  const change_person = evt => {
+    const { value } = evt.target
+
+    set_person(value)
   }
 
   if (loading) {
@@ -34,6 +41,9 @@ const Form = () => {
         />
         <p>{access}</p>
       </div>
+      <div className="guide_text">
+        <p>! 접근성은 0에 가까울수록 높아집니다.</p>
+      </div>
       <div className="input_field">
         <label>유형</label>
         <select name="category_val">
@@ -50,8 +60,16 @@ const Form = () => {
         </select>
       </div>
       <div className="input_field">
-        <label>참여자</label>
-        <input type="number" placeholder="1" name="person_val" />
+        <label>인원</label>
+        <input
+          className="input_last"
+          type="number"
+          value={person}
+          name="person_val"
+          onChange={e => {
+            change_person(e)
+          }}
+        />
       </div>
       <p className="social_text">지금 뭐하지?</p>
       <input type="submit" value="시작하기" className="btn_solid" />

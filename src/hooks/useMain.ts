@@ -78,6 +78,7 @@ export const useMainLogic = () => {
             activity: res.data.translated_text[0],
             accessibility: param.accessibility,
             participants: param.participants,
+            type: param.type,
           },
         })
       })
