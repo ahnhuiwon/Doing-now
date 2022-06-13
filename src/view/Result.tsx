@@ -12,7 +12,8 @@ import social from '../style/img/social.png'
 import { AiOutlineHome } from 'react-icons/ai'
 import { VscDebugRestart } from 'react-icons/vsc'
 import { useLocation } from 'react-router-dom'
-import { useResultLogic } from '../hooks/useMain'
+import { useMainLogic, useResultLogic } from '../hooks/useMain'
+import Loading from '../component/Loading'
 
 interface StateType {
   hash: string
@@ -25,6 +26,11 @@ interface StateType {
 const Result = () => {
   const { state }: StateType = useLocation()
   const { move_rootpage } = useResultLogic()
+  const { send_data, loading } = useMainLogic()
+  if (loading) {
+    return <Loading />
+  }
+  console.log(state.total_data)
 
   return (
     <>
@@ -62,7 +68,12 @@ const Result = () => {
               <AiOutlineHome />
             </button>
             <div></div>
-            <button className="restart_btn">
+            <button
+              className="restart_btn"
+              onClick={() => {
+                send_data(state.total_data)
+              }}
+            >
               <VscDebugRestart />
             </button>
           </div>

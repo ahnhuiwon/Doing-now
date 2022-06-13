@@ -48,9 +48,8 @@ export const useMainLogic = () => {
       `https://www.boredapi.com/api/activity?accessibility=${access}&&type=${category}&&participants=${person}`
     )
       .then(async res => {
-        console.log(res.data)
         if (!res.data.error) {
-          await translate_func(res.data)
+          await translate_func(res.data, param)
         } else {
           navigate('/not_search')
         }
@@ -60,7 +59,7 @@ export const useMainLogic = () => {
       })
   }
 
-  const translate_func = async (param: Resdata) => {
+  const translate_func = async (param: Resdata, send_param: Tempdata) => {
     const { activity } = param
     await Axios.get(
       `https://dapi.kakao.com/v2/translation/translate?src_lang=en&target_lang=kr&query=${activity}`,
@@ -79,6 +78,7 @@ export const useMainLogic = () => {
             accessibility: param.accessibility,
             participants: param.participants,
             type: param.type,
+            total_data: send_param,
           },
         })
       })
@@ -88,7 +88,7 @@ export const useMainLogic = () => {
       })
   }
 
-  return { main_click, loading }
+  return { main_click, loading, send_data }
 }
 
 // 결과 페이지 로직
