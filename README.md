@@ -45,9 +45,9 @@ $ npm start
 
 ### 필수 구현 사항
 
-- [] bored api에서 필요한 파라미터에 대한 input 구현 및 데이터 전달
-- [] bored api에서 받아온 response 값을 카카오 번역 api를 통해 한글로 번역
-- [] 결과 페이지에서 research 기능 구현
+- [ ] bored api에서 필요한 파라미터에 대한 input 구현 및 데이터 전달
+- [ ] bored api에서 받아온 response 값을 카카오 번역 api를 통해 한글로 번역
+- [ ] 결과 페이지에서 research 기능 구현
 
 ### 추가 구현 사항
 
