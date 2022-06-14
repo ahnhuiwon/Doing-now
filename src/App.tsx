@@ -9,10 +9,19 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/result" element={<Result />} />
-          <Route path="/not_search" element={<NotSearch />} />
-          <Route path="/loading" element={<Loading />} />
+          <Route path="/~c11st16/portfolio/do_now" element={<Main />} />
+          <Route
+            path="/~c11st16/portfolio/do_now/result"
+            element={<Result />}
+          />
+          <Route
+            path="/~c11st16/portfolio/do_now/not_search"
+            element={<NotSearch />}
+          />
+          <Route
+            path="/~c11st16/portfolio/do_now/loading"
+            element={<Loading />}
+          />
         </Routes>
       </BrowserRouter>
     </div>

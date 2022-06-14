@@ -1,5 +1,6 @@
 {
   "name": "ts-do-now",
+  "homepage": "http://pager.kr/~c11st16/portfolio/do_now",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

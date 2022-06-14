@@ -51,7 +51,7 @@ export const useMainLogic = () => {
         if (!res.data.error) {
           await translate_func(res.data, param)
         } else {
-          navigate('/not_search')
+          navigate('/~c11st16/portfolio/do_now/not_search')
         }
       })
       .catch(err => {
@@ -65,14 +65,14 @@ export const useMainLogic = () => {
       `https://dapi.kakao.com/v2/translation/translate?src_lang=en&target_lang=kr&query=${activity}`,
       {
         headers: {
-          Authorization: 'KakaoAK user_key',
+          Authorization: 'KakaoAK c1d5bb9a47003e72e17807eec9bbb613',
           'Content-type': 'application/x-www-form-urlencoded',
         },
       }
     )
       .then(async res => {
         await set_loading(false)
-        await navigate('/result', {
+        await navigate('/~c11st16/portfolio/do_now/result', {
           state: {
             activity: res.data.translated_text[0],
             accessibility: param.accessibility,
@@ -96,7 +96,7 @@ export const useResultLogic = () => {
   const navigate = useNavigate()
 
   const move_rootpage = () => {
-    navigate('/')
+    navigate('/~c11st16/portfolio/do_now/')
   }
 
   return { move_rootpage }
